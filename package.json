@@ -7,18 +7,24 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "nuxt start"
   },
   "dependencies": {
+    "@nuxtjs/vuetify": "^1.12.3",
+    "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel": "^8.0.1",
+    "embla-carousel-vue": "^8.0.1",
     "lucide-vue-next": "^0.364.0",
     "nuxt": "^3.11.1",
     "radix-vue": "^1.6.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuetify": "^3.4.0-beta.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.11.4",
