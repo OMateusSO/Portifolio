@@ -14,8 +14,7 @@ import { lightDark } from '../sharedTheme';
 
 <style scoped>
 .dark {
-  background-color: #1a202c;
-  color: #f7fafc;
+
 }
 
 input[type="checkbox"]:checked + .transform {
