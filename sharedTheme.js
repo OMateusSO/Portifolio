@@ -10,5 +10,11 @@ export const lightDark = ref(isBrowser ? localStorage.getItem('darkMode') === 't
 watch(lightDark, (newValue) => {
   if (isBrowser) {
     localStorage.setItem('darkMode', newValue.toString());
+    document.body.classList.toggle('dark-mode', newValue);
   }
 });
+
+// Adicionar a classe no carregamento inicial
+if (isBrowser && lightDark.value) {
+  document.body.classList.add('dark-mode');
+}

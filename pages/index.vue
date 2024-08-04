@@ -9,7 +9,7 @@ import Foot from '../components/Foot.vue';
     <video v-if="lightDark" src="/assets/videos/0701(1).mp4" class="video-bg" autoplay loop plays-inline muted></video>
     <div class="content">
       <div class="flex items-center justify-center p-16">
-        <h1 class="text-7xl">AAAAAAAAAAAAAAA</h1>
+        <h1 class="text-6xl">Olá, bem-vindo ao meu Portfólio!</h1>
       </div>
       <div class="flex items-center justify-center">
         <button class="bg-blue-600 text-white rounded-lg hover:bg-blue-500 py-2 px-4">
