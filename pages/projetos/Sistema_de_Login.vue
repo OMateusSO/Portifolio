@@ -1,7 +1,7 @@
 <template>
-  <video v-if="lightDark" src="/assets/videos/0701(1).mp4" class="video-bg" autoplay loop plays-inline muted></video>
+  <!-- <video v-if="lightDark" src="/assets/videos/0701(1).mp4" class="video-bg" autoplay loop plays-inline muted></video> -->
   <Nav></Nav>
-  <div :class="{ 'dark-theme': lightDark }" class="flex items-center justify-center h-screen" >
+  <div :class="{ 'dark-theme': lightDark }" class="flex flex-col justify-center items-center min-h-screen py-8 bg-gray-100 dark:bg-gray-900">
     <p>Sistema de Login</p>
   </div>
   <Foot></Foot>

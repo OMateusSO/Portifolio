@@ -1,24 +1,39 @@
 <script setup lang="ts">
 import { lightDark } from '../sharedTheme';
 import Foot from '../components/Foot.vue';
+
+const abrirPDF = () => {
+  const urlPDF = '/docs/MateusSousaBasilio.pdf';
+  window.open(urlPDF, '_blank');
+};
 </script>
 
 <template>
-  <Nav></Nav>
-  <div :class="{ 'dark-theme': lightDark }" class="relative">
-    <video v-if="lightDark" src="/assets/videos/0701(1).mp4" class="video-bg" autoplay loop plays-inline muted></video>
-    <div class="content">
-      <div class="flex items-center justify-center p-16">
-        <h1 class="text-6xl">Olá, bem-vindo ao meu Portfólio!</h1>
+  <Nav />
+  <div :class="{ 'dark-theme': lightDark }" class="relative min-h-screen flex flex-col items-center bg-gray-100 dark:bg-gray-900">
+    <div class="content w-full max-w-4xl px-8 md:px-16 lg:px-32 text-center">
+      <div class="flex items-center justify-center py-8">
+        <h1 class="text-5xl lg:text-6xl font-bold  dark:text-white">Bem-vindo(a) ao meu Portfólio!</h1>
       </div>
-      <div class="flex items-center justify-center">
-        <button class="bg-blue-600 text-white rounded-lg hover:bg-blue-500 py-2 px-4">
-          Baixar
+      <div class="py-8 text-justify">
+        <p class="text-2xl lg:text-4xl dark:text-gray-300">
+          Neste portfólio, você encontrará exemplos dos meus projetos e habilidades nas áreas de desenvolvimento web, tanto em Front-end quanto em Back-end.
+          Descubra mais sobre minha experiência em cada um dos meus trabalhos na seção de <router-link to="/projetos" class="text-blue-600 dark:text-blue-400 underline">Projetos</router-link>.
+        </p>
+        <p class="text-2xl lg:text-4xl dark:text-gray-300 mt-6">
+          Para saber mais sobre minha trajetória e qualificações, você pode acessar meu currículo completo no botão abaixo.
+          E, se quiser trocar ideias ou colaborar, minhas redes sociais estão disponíveis na seção <router-link to="/sobre-mim" class="text-blue-600 dark:text-blue-400 underline">Sobre</router-link>.
+          Fique à vontade para entrar em contato!
+        </p>
+      </div>
+      <div class="flex items-center justify-center m-8">
+        <button class="bg-blue-600 text-white rounded-lg hover:bg-blue-500 py-2 px-6 text-lg font-semibold transition duration-300" @click="abrirPDF">
+          Currículo
         </button>
       </div>
     </div>
   </div>
-  <Foot></Foot>
+  <Foot/>
 </template>
 
 <style>
@@ -26,21 +41,12 @@ import Foot from '../components/Foot.vue';
   /* Adicione seu estilo específico para o tema escuro aqui */
 }
 
-.video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.7;
-  filter: brightness(1.2) contrast(1.2);
-}
-
 .content {
   position: relative;
   z-index: 1;
-  min-height: 100vh; /* Para garantir que o conteúdo preencha pelo menos a tela inteira */
+  min-height: 100vh;
 }
+
+
+
 </style>

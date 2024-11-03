@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'dark-theme': lightDark }" class="hidden h-full flex-col md:flex">
     <div class="container flex flex-col items-start justify-between space-y-2 py-8 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
-      <router-link to="/" class="text-black text-2xl">OMateusSO</router-link>
+      <router-link to="/" class="text-black text-2xl lg:text-1xl font-bold">OMateusSO</router-link>
       
       <div class="ml-auto flex w-full space-x-2 sm:justify-end">
         <div>

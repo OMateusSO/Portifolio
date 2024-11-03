@@ -12,16 +12,14 @@ function Voltar() {
 
 <template>
   <Nav></Nav>
-  <div :class="{ 'dark-theme': lightDark }" class="relative">
-    <video v-if="lightDark" src="/assets/videos/0701(1).mp4" class="video-bg" autoplay loop plays-inline muted></video>
-    <div class="content">
-      <div class="flex flex-col justify-center items-center p-16">
-        <h1 class="text-7xl m-2">Página Não Encontrada</h1>
-        <div class="flex justify-center items-center mt-16">
-          <button @click="Voltar" class=" bg-blue-600 text-white rounded-lg hover:bg-blue-500 py-2 px-4">
-            voltar
-          </button>
-        </div>
+  <div :class="{ 'dark-theme': lightDark }" class="flex flex-col justify-center items-center min-h-screen py-8 bg-gray-100 dark:bg-gray-900">
+    <div class="content text-center">
+      <h1 class="text-5xl lg:text-6xl font-bold m-2">Página Não Encontrada</h1>
+      <p class="text-xl m-8">Desculpe, mas a página que você está procurando não existe.</p>
+      <div class="flex justify-center m-8">
+        <button @click="Voltar" class="bg-blue-600 text-white rounded-lg hover:bg-blue-500 py-2 px-6 text-lg font-semibold">
+          Voltar para a página inicial
+        </button>
       </div>
     </div>
   </div>

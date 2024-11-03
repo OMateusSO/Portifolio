@@ -1,96 +1,105 @@
 <template>
-  <Nav></Nav>
-  <div :class="{ 'dark-theme': lightDark }" class="relative">
-    <video v-if="lightDark" src="/assets/videos/0701(1).mp4" class="video-bg" autoplay loop plays-inline muted></video>
-    <div class="content">
-      <div class="p-4">
-        <h1 class="text-3xl text-center">Meus Projetos</h1>
+  <Nav />
+  <div :class="{ 'dark-theme': lightDark }" class="relative min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
+    <div class="content w-full max-w-6xl mx-auto p-4 lg:p-8">
+      <!-- Título da seção de Projetos -->
+      <div class="py-4 text-center">
+        <h1 class="text-3xl lg:text-5xl font-bold">Meus Projetos</h1>
       </div>
-      <div class="flex items-center justify-center">
-        <div class="cards-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 text-black">
-          <div class="card p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" @click="SistemaLogin">
-            <h2 class="text-xl font-bold mb-2">Sistema de Login</h2>
-            <p class="text-gray-700 dark:text-gray-300">Descrição do card 1</p>
-          </div>
-          <div class="card p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md" @click="Chat">
-            <h2 class="text-xl font-bold mb-2">Chat</h2>
-            <p class="text-gray-700 dark:text-gray-300">Descrição do card 2</p>
-          </div>
-          <div class="card p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-            <h2 class="text-xl font-bold mb-2">Card 3</h2>
-            <p class="text-gray-700 dark:text-gray-300">Descrição do card 3</p>
-          </div>
-          <!-- Repetição dos cards omitida para brevidade -->
+
+      <!-- Barra de pesquisa -->
+      <div class="flex justify-center mb-6">
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="Buscar projetos..."
+          class="border border-gray-300 rounded-lg px-4 py-2 w-full max-w-md text-gray-700 focus:outline-none focus:border-blue-500 dark:bg-gray-800 dark:text-gray-200"
+        />
+      </div>
+
+      <!-- Seção de cards de projetos filtrados com carrossel -->
+      <div class="cards-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div 
+          v-for="project in filteredProjects" 
+          :key="project.id"
+          class="card p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
+          @click="goToProject(project.route)"
+        >
+          <h2 class="text-2xl text-black font-semibold mb-2">{{ project.title }}</h2>
+          <p class="text-gray-600 dark:text-gray-400">{{ project.description }}</p>
         </div>
       </div>
-      <div class="p-4">
-        <h1 class="text-3xl text-center">Video de trabalhos e Projetos</h1>
+
+      <!-- Seção de vídeo -->
+      <div class="py-8">
+        <h1 class="text-3xl lg:text-5xl font-bold text-center">Vídeo de Trabalhos e Projetos</h1>
       </div>
-      <div class="p-4 max-w-screen-sm mx-auto">
-        <video src="/assets/videos/Protifole.mp4" class="w-full" controls autoplay muted></video>
+      <div class="flex justify-center">
+        <div class="max-w-screen-md w-full">
+          <video src="/assets/videos/Protifole.mp4" class="w-full rounded-lg shadow-md" controls autoplay muted></video>
+        </div>
       </div>
     </div>
-    <Foot class="transparent-footer"></Foot>
   </div>
+  <Foot/>
 </template>
 
 <script setup lang="ts">
 import { lightDark } from '@/sharedTheme';
 import { useRouter } from 'vue-router';
+import { ref, computed } from 'vue';
 
 const router = useRouter();
 
-function SistemaLogin() {
-  router.push('/projetos/Sistema_de_Login');
+// Estado reativo para o termo de pesquisa
+const searchQuery = ref("");
+
+// Lista de projetos
+const projects = [
+  { id: 1, title: "Sistema de Login", description: "Projeto de sistema de login seguro e responsivo.", route: "/projetos/Sistema_de_Login" },
+  { id: 2, title: "Chat", description: "Aplicação de chat em tempo real com várias funcionalidades.", route: "/projetos/chat" },
+  { id: 3, title: "E-commerce", description: "Projeto completo de e-commerce com carrinho de compras.", route: "/projetos/ecommerce" },
+  // Adicione outros projetos conforme necessário
+];
+
+// Computed para filtrar projetos
+const filteredProjects = computed(() => {
+  return projects.filter(project =>
+    project.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+});
+
+// Função para redirecionar para o projeto
+function goToProject(route: string) {
+  router.push(route);
 }
 
-function Chat() {
-  router.push('/projetos/chat');
+// Funções para scroll do carrossel
+function scrollLeft() {
+  const container = document.querySelector('.cards-container');
+  container?.scrollBy({ left: -300, behavior: 'smooth' });
 }
 
-function Projeto3() {
-  router.push('/projetos/chat');
+function scrollRight() {
+  const container = document.querySelector('.cards-container');
+  container?.scrollBy({ left: 300, behavior: 'smooth' });
 }
 </script>
 
 <style>
 .dark-theme {
-  /* Adicione seu estilo específico para o tema escuro aqui */
-}
-
-.video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.7;
-  filter: brightness(1.2) contrast(1.2);
+  /* Estilo para o tema escuro */
 }
 
 .content {
   position: relative;
   z-index: 1;
-  min-height: 100vh; /* Para garantir que o conteúdo preencha pelo menos a tela inteira */
-}
-
-.cards-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .card {
+  min-width: 300px; /* Ajuste o tamanho do card conforme necessário */
   transition: transform 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Estilo para o footer transparente */
-.transparent-footer {
-  background-color: transparent;
-}
 </style>
