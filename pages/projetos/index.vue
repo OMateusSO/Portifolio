@@ -17,7 +17,7 @@
         />
       </div>
 
-      <!-- Seção de cards de projetos filtrados com carrossel -->
+      
       <div class="cards-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div 
           v-for="project in filteredProjects" 
@@ -88,7 +88,7 @@ function scrollRight() {
 
 <style>
 .dark-theme {
-  /* Estilo para o tema escuro */
+  
 }
 
 .content {
@@ -102,4 +102,8 @@ function scrollRight() {
   transition: transform 0.2s;
 }
 
+
+.card:hover {
+  transform: translateY(-5px);
+}
 </style>
