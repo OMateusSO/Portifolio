@@ -39,13 +39,16 @@
     <!-- Menu expandido para dispositivos móveis -->
     <transition name="fade">
       <div v-if="menuOpen"
-        class="flex flex-col items-start bg-white dark:bg-gray-800 border-t border-gray-300 dark:border-gray-700">
+        class="flex flex-col items-start  border-t border-gray-300 "
+        :class="{'bg-white': !lightDark, ' border-gray-700': lightDark}">
         <button @click="bntProjetos"
-          class="py-3 px-4 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-left">
+          class="py-3 px-4 text-gray-600 dark:text-gray-700 hover:bg-gray-100 w-full text-left"
+          :class="{'bg-white': !lightDark, 'hover:bg-gray-700': lightDark}">
           Projetos
         </button>
         <button @click="bntContatos"
-          class="py-3 px-4 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-left">
+          class="py-3 px-4 text-gray-600 dark:text-gray-300 hover:bg-gray-100 w-full text-left"
+          :class="{'bg-white': !lightDark, 'hover:bg-gray-700': lightDark}">
           Sobre
         </button>
       </div>
@@ -81,16 +84,4 @@ function toggleMenu() {
   color: rgb(255, 255, 255);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to
-
-/* .fade-leave-active em versões <2.1.8 */
-  {
-  opacity: 0;
-}
 </style>
