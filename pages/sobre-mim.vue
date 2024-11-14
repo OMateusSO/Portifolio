@@ -84,6 +84,10 @@ const idade = calcularIdade("2002-12-18");
   color: #ffffff;
 }
 
+.dark-theme h2 {
+  color: #ffffff;
+}
+
 .dark-theme h3 {
   color: #3b82f6;
 }
