@@ -4,17 +4,16 @@
     <div class="content w-full max-w-6xl mx-auto p-4 lg:p-8">
       <!-- Título da página -->
       <div class="py-4 text-center">
-        <h1 class="text-3xl lg:text-5xl font-bold dark:text-white">Sistema de Login</h1>
+        <h1 class="text-3xl lg:text-5xl font-bold dark:text-white">Projeto-Z</h1>
       </div>
 
-      <!-- Descrição do Projeto -->
+      <!-- Descrição do projeto -->
       <div class="mb-8">
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Sobre o Projeto</h2>
         <p class="text-gray-700 dark:text-gray-300">
-          O Sistema de Login é uma aplicação web desenvolvida com Vue.js, Firebase e Tailwind CSS, projetada para
-          fornecer autenticação segura e gerenciamento de usuários. Ele é uma peça fundamental em outros projetos, como
-          o 
-          <router-link to="/projetos/projetoZ" class=" hover:text-blue-800 underline"><strong>Projeto-Z</strong></router-link>, oferecendo suporte confiável para controle de acesso.
+          Projeto-Z é uma aplicação web desenvolvida com Vue.js, utilizando Firebase para backend e banco de dados, e
+          estilizada com Tailwind CSS para uma interface moderna e responsiva. Este projeto permite a criação e gestão
+          de salas de bate-papo em tempo real.
         </p>
       </div>
 
@@ -32,25 +31,26 @@
       <div class="mb-8">
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Funcionalidades</h2>
         <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-          <li><strong>Login Seguro:</strong> Gerenciado com Firebase Auth para autenticação robusta.</li>
-          <li><strong>Cadastro de Usuários:</strong> Permite criação de contas com validação.</li>
-          <!-- <li><strong>Redefinição de Senha:</strong> Recuperação de acesso por e-mail.</li> -->
-          <li><strong>Customização:</strong> Fácil integração com outros sistemas, como o Projeto-Z.</li>
+          <li><strong>Autenticação:</strong> Gerenciada com o Firebase Auth para login seguro.</li>
+          <li><strong>Criação de Salas:</strong> Usuários podem criar salas de bate-papo.</li>
+          <li><strong>Mensagens em Tempo Real:</strong> Bate-papo em tempo real com sincronização instantânea via
+            Firebase Firestore.</li>
+          <li><strong>Interface Responsiva:</strong> Design otimizado para diferentes tamanhos de tela.</li>
         </ul>
       </div>
 
-      <!-- Repositório no GitHub -->
+      <!-- Link para o GitHub -->
       <div class="mb-8">
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Repositório no GitHub</h2>
-        <div class="">
-          <a href="https://github.com/OMateusSO/SistemaLogin" target="_blank"
+        <div>
+          <a href="https://github.com/OMateusSO/RedeSocial-Firebase" target="_blank"
             class="text-blue-600 hover:text-blue-800 transition-colors">
-            https://github.com/OMateusSO/Auth-Firebase
+            https://github.com/OMateusSO/Projeto-Z
           </a>
         </div>
       </div>
 
-      <!-- Demonstração -->
+      <!-- Seção de vídeo ou imagem -->
       <div class="mb-8">
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Demonstração</h2>
         <div class="flex justify-center">

@@ -9,7 +9,9 @@
     <div :class="{'bg-white': !lightDark, 'dark:bg-gray-700': lightDark}" class="rounded-lg shadow-lg p-6 max-w-xl md:max-w-4xl mx-auto text-center md:text-left md:flex md:items-center md:space-x-6 transition-colors duration-500">
       <!-- Foto de Perfil -->
       <div class="justify-center flex-shrink-0 flex md:justify-center mb-6 md:mb-0">
-        <img src="/assets/img/Design sem nome (1).png" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gray-800 object-cover shadow-md" alt="Foto de perfil">
+        <img src="/assets/img/Design sem nome (1).png"
+        :class="{'border-gray-200': !lightDark, 'dark:bg-gray-700': lightDark}"
+         class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gray-800 object-cover shadow-md" alt="Foto de perfil">
       </div>
       
       <!-- Informações -->
