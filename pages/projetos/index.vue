@@ -36,7 +36,7 @@
       </div>
       <div class="flex justify-center">
         <div class="max-w-screen-md w-full">
-          <video src="/assets/videos/Protifole.mp4" class="w-full rounded-lg shadow-md" controls autoplay muted></video>
+          <video src="/assets/videos/Protifole.mp4" class="w-full rounded-lg shadow-md" controls muted></video>
         </div>
       </div>
     </div>
