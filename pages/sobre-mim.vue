@@ -43,7 +43,7 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail"
               class="w-12 h-12 md:w-14 md:h-14">
           </a>
-          <a href="https://www.linkedin.com/in/mateus-sousa-basilio-a0097b217/" target="_blank">
+          <a href="https://www.linkedin.com/in/mateus-sousa-basilio-a0097b217/">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn"
               class="w-12 h-12 md:w-14 md:h-14">
           </a>
@@ -92,17 +92,23 @@
 import { lightDark } from '@/sharedTheme';
 
 function calcularIdade(dataNascimento: string): number {
-  const nascimento = new Date(dataNascimento);
+  const nascimento = new Date(`${dataNascimento}T00:00:00`);
   const hoje = new Date();
   let idade = hoje.getFullYear() - nascimento.getFullYear();
-  if (hoje.getMonth() < nascimento.getMonth() || (hoje.getMonth() === nascimento.getMonth() && hoje.getDate() < nascimento.getDate())) {
+
+  if (
+    hoje.getMonth() < nascimento.getMonth() ||
+    (hoje.getMonth() === nascimento.getMonth() && hoje.getDate() < nascimento.getDate())
+  ) {
     idade--;
   }
   return idade;
 }
 
 const idade = calcularIdade("2002-12-18");
+console.log(idade);
 </script>
+
 
 <style>
 .dark-theme h1 {
