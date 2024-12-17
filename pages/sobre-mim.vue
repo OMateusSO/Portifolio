@@ -34,7 +34,7 @@
       <!-- Links de Contato -->
       <div :class="{ 'bg-white': !lightDark, 'dark:bg-gray-700': lightDark }"
         class="card p-6 rounded-lg shadow-lg hover:shadow-xl">
-        <h3 class="text-center text-xl md:text-2xl text-gray-700 dark:text-blue-400 mb-4">Links de Contato</h3>
+        <h3 class="text-center text-xl md:text-2xl dark:text-blue-400 mb-4">Links de Contato</h3>
         <div class="flex justify-center gap-4">
           <a href="https://github.com/OMateusSO?tab=repositories" target="_blank">
             <img src="/assets/img/github.png" alt="GitHub" class="w-12 h-12 md:w-14 md:h-14">
@@ -53,7 +53,7 @@
       <!-- Tecnologias -->
       <div :class="{ 'bg-white': !lightDark, 'dark:bg-gray-700': lightDark }"
         class="card p-6 rounded-lg shadow-lg hover:shadow-xl">
-        <h3 class="text-center text-xl md:text-2xl text-gray-700 dark:text-blue-400 mb-4">Tecnologias</h3>
+        <h3 class="text-center text-xl md:text-2xl  dark:text-blue-400 mb-4">Tecnologias</h3>
         <div class="flex flex-wrap justify-center gap-4">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js"
             class="w-12 h-12 md:w-14 md:h-14">
