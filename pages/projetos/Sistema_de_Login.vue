@@ -55,9 +55,7 @@
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Demonstração</h2>
         <div class="flex justify-center">
           <div class="max-w-screen-md w-full">
-            <video class="w-full rounded-lg shadow-md" controls muted>
-              <source src="/0109.mp4" type="video/mp4">
-            </video>
+            <video src="/assets/videos/Sistema_de_login.mp4" class="w-full rounded-lg shadow-md" controls muted></video>
           </div>
         </div>
       </div>
