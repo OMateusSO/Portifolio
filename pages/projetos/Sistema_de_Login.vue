@@ -45,7 +45,7 @@
         <div class="">
           <a href="https://github.com/OMateusSO/SistemaLogin" target="_blank"
             class="text-blue-600 hover:text-blue-800 transition-colors">
-            https://github.com/OMateusSO/Auth-Firebase
+            https://github.com/OMateusSO/Auth-Firebase.git
           </a>
         </div>
       </div>
@@ -55,7 +55,7 @@
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Demonstração</h2>
         <div class="flex justify-center">
           <div class="max-w-screen-md w-full">
-            <video src="/assets/videos/0109(2).mp4" class="w-full rounded-lg shadow-md" controls></video>
+            <video src="/assets/videos/0109.mp4" class="w-full rounded-lg shadow-md" controls></video>
           </div>
         </div>
       </div>
