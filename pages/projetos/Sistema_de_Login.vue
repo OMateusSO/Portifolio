@@ -43,9 +43,9 @@
       <div class="mb-8">
         <h2 class="text-2xl font-semibold dark:text-white mb-4">Repositório no GitHub</h2>
         <div class="">
-          <a href="https://github.com/OMateusSO/SistemaLogin" target="_blank"
+          <a href="https://github.com/OMateusSO/Auth-Firebase" target="_blank"
             class="text-blue-600 hover:text-blue-800 transition-colors">
-            https://github.com/OMateusSO/Autenticacao-Firebase
+            https://github.com/OMateusSO/Auth-Firebase
           </a>
         </div>
       </div>
