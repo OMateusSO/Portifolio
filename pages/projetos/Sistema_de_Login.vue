@@ -45,7 +45,7 @@
         <div class="">
           <a href="https://github.com/OMateusSO/SistemaLogin" target="_blank"
             class="text-blue-600 hover:text-blue-800 transition-colors">
-            https://github.com/OMateusSO/Auth-Firebase.git
+            https://github.com/OMateusSO/Autenticacao-Firebase
           </a>
         </div>
       </div>
