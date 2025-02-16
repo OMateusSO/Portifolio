@@ -49,7 +49,7 @@ const abrirPDF = () => {
 
 <style>
 .dark-theme {
-  /* Adicione seu estilo específico para o tema escuro aqui */
+
 }
 
 .content {
@@ -57,4 +57,6 @@ const abrirPDF = () => {
   z-index: 1;
   min-height: 100vh;
 }
+
+
 </style>

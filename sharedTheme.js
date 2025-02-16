@@ -14,7 +14,6 @@ watch(lightDark, (newValue) => {
   }
 });
 
-// Adicionar a classe no carregamento inicial
 if (isBrowser && lightDark.value) {
   document.body.classList.add('dark-mode');
 }
