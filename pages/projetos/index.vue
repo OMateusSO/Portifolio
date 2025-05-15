@@ -56,9 +56,9 @@ const searchQuery = ref("");
 
 // Lista de projetos
 const projects = [
-  { id: 1, title: "Sistema de Login", description: "Projeto de sistema de login seguro e responsivo.", route: "/projetos/Sistema_de_Login" },
+  { id: 1, title: "Sistema de Login", description: "Projeto de sistema de login seguro e responsivo.", route: "/projetos/sistema_de_Login" },
   { id: 2, title: "Projeto Z", description: "Aplicação de chat em tempo real com várias funcionalidades.", route: "/projetos/projetoZ" },
-  { id: 3, title: "E-commerce", description: "Projeto completo de e-commerce com carrinho de compras.", route: "/projetos/ecommerce" },
+  { id: 3, title: "Biblioteca", description: "Projeto completo de e-commerce com carrinho de compras.", route: "/projetos/biblioteca" },
   // Adicione outros projetos conforme necessário
 ];
 
