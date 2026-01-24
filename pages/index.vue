@@ -1,62 +1,306 @@
 <script setup lang="ts">
 import { lightDark } from '../sharedTheme';
-import Foot from '../components/Foot.vue';
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const abrirPDF = () => {
   const urlPDF = '/docs/MateusSousaBasilio.pdf';
   window.open(urlPDF, '_blank');
 };
+
+const scrollParaSobre = () => {
+  const section = document.getElementById('sobre')
+  section?.scrollIntoView({ behavior: 'smooth' })
+}
+
+
+function calcularIdade(dataNascimento: string): number {
+  const nascimento = new Date(`${dataNascimento}T00:00:00`);
+  const hoje = new Date();
+  let idade = hoje.getFullYear() - nascimento.getFullYear();
+  if (hoje.getMonth() < nascimento.getMonth() || (hoje.getMonth() === nascimento.getMonth() && hoje.getDate() < nascimento.getDate())) {
+    idade--;
+  }
+  return idade;
+}
+
+const idade = calcularIdade("2002-12-18");
+
+const habilidades = {
+  frontend: [
+    { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
+    { name: 'React', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
+    { name: 'Next.js', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg' },
+    { name: 'Nuxt.js', icon: 'https://logo.svgcdn.com/logos/nuxt.svg' },
+    { name: 'Tailwind CSS', icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg' },
+  ],
+  backend: [
+    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+    { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+  ],
+  banco: [
+    { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+    { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+    { name: 'SQLite', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg' },
+  ],
+  ferramentas: [
+    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+    { name: 'Insomnia', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
+    { name: 'Notion', icon: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png' },
+    { name: 'Trello', icon: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Trello-logo-blue.svg' },
+  ],
+  interpessoais: [
+    'communication',
+    'teamwork',
+    'organization',
+    'proactivity',
+    'fastLearning',
+    'problemSolving'
+  ]
+}
+
+
+type TimelineItem = {
+  ano: string
+  titulo: string
+  descricao: string
+  skills?: string[]
+}
+
+const timeline: TimelineItem[] = [
+  {
+    ano: '2020',
+    titulo: 'Início na programação',
+    descricao: 'Primeiro contato com lógica de programação, praticando conceitos fundamentais e fixando o raciocínio lógico utilizando Portugol.',
+    skills: ['Portugol'],
+  },
+  {
+    ano: '2021-2024',
+    titulo: 'Graduação em ADS',
+    descricao: 'Início da graduação em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento Java e fundamentos de banco de dados.',
+    skills: ['Java', 'Apache', 'MySQL', 'Git', 'GitHub', 'Trello'],
+  },
+  {
+    ano: '2024',
+    titulo: 'Estágio',
+    descricao: 'Atuação em projetos web durante estágio, desenvolvendo funcionalidades no frontend e backend, aplicando boas práticas, organização de código e ferramentas modernas como Vue.js, Node.js e Docker.',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Insomnia', 'Docker', 'Notion', 'GitLab'],
+  },
+  {
+    ano: '2025',
+    titulo: 'Projetos práticos',
+    descricao: 'Desenvolvimento de projetos acadêmicos e pessoais, atuando no frontend e backend, aplicando boas práticas e organização de código.',
+    skills: ['Next.js', 'React', 'Nuxt', 'Firebase', 'MongoDB', 'SQLite'],
+  }
+]
+
 </script>
 
 <template>
-  <Nav />
-  <div :class="{ 'dark-theme': lightDark }"
-    class="relative min-h-screen flex flex-col items-center bg-gray-100 dark:bg-gray-900">
-    <div class="content w-full max-w-4xl px-8 md:px-16 lg:px-32 text-center">
-      <div class="flex items-center justify-center py-8">
-        <h1 class="text-5xl lg:text-6xl font-bold  dark:text-white">Bem-vindo(a) ao meu Portfólio!</h1>
+  <section class="w-full min-h-screen flex flex-col items-center justify-center px-6"
+    :class="lightDark ? 'bg-black text-white' : 'bg-white text-gray-900'">
+
+    <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 items-center">
+
+      <div class="flex justify-center">
+        <img src="/assets/img/Design sem nome (1).png"
+          class="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 object-cover shadow-xl"
+          :class="lightDark ? 'border-gray-600' : 'border-gray-300'" alt="Foto de perfil" />
       </div>
-      <div class="py-2 text-justify">
-        <p class="text-2xl lg:text-4xl dark:text-gray-300">
-          Neste portfólio, você encontrará exemplos dos meus projetos e habilidades nas áreas de desenvolvimento web,
-          tanto em Front-end quanto em Back-end.
-          Descubra mais sobre minha experiência em cada um dos meus trabalhos na seção de <router-link to="/projetos"
-            class="text-blue-600 dark:text-blue-400 underline">Projetos</router-link>.
+
+      <div class="text-center md:text-left space-y-5">
+        <h1 class="text-4xl md:text-6xl font-bold">Mateus Sousa Basilio</h1>
+        <h2 class="text-xl md:text-2xl font-medium" :class="lightDark ? 'text-gray-300' : 'text-gray-600'">
+          {{ $t('hero.role') }}
+        </h2>
+
+        <p class="text-lg leading-relaxed max-w-xl" :class="lightDark ? 'text-gray-400' : 'text-gray-700'">
+          {{ $t('hero.description') }}
         </p>
-        <p class="text-2xl lg:text-4xl dark:text-gray-300 mt-6">
-          Para saber mais sobre minha trajetória e qualificações, você pode acessar meu currículo completo no botão
-          abaixo.
-          E, se quiser trocar ideias ou colaborar, minhas redes sociais estão disponíveis na seção <router-link
-            to="/sobre-mim" class="text-blue-600 dark:text-blue-400 underline">Sobre</router-link>.
-          Fique à vontade para entrar em contato!
-        </p>
-      </div>
-      <div class="flex items-center justify-center m-8">
-        <button :class="{ 'border-t-2 text-gray-600 border-gray-600 border-2': lightDark, 'bg-white border-2  border-gray-300': !lightDark }"
-          class="rounded-full px-6 py-2 text-lg"
-          @click="abrirPDF">
-          Currículo
-        </button>
 
+        <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+          <button @click="abrirPDF" class="px-6 py-3 rounded-xl transition border" :class="lightDark
+            ? 'bg-gradient-to-br from-[#050b1a] via-[#0a1733] to-[#0f2357] text-blue-100 border-blue-900/40 hover:shadow-[0_0_30px_rgba(37,99,235,0.35)] border-blue-900/40 shadow-[0_-10px_30px_rgba(37,99,235,0.25),0_10px_30px_rgba(37,99,235,0.25)]'
+            : 'bg-black text-white hover:bg-gray-800'">
+            {{ $t('hero.buttons.resume') }}
+          </button>
 
-
-
+          <NuxtLink to="/projetos" class="px-6 py-3 rounded-xl border transition" :class="lightDark
+            ? 'border-white/30 text-white hover:bg-white/10'
+            : 'border-black/30 text-black hover:bg-black/5'">
+            {{ $t('hero.buttons.projects') }}
+          </NuxtLink>
+        </div>
       </div>
     </div>
-  </div>
-  <Foot />
+
+    <button @click="scrollParaSobre" class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce
+         cursor-pointer hover:scale-110 transition-transform" aria-label="Ir para a seção Sobre mim">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-600" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  </section>
+
+  <section id="sobre" class="relative w-full py-28 px-6 flex flex-col items-center
+         transition-all duration-300 overflow-visible z-10" :class="lightDark
+          ? `bg-gradient-to-br from-[#050b1a] via-[#0a1733] to-[#0f2357]
+       text-blue-100
+       border-t border-b border-blue-900/40
+       shadow-[0_-10px_30px_rgba(37,99,235,0.25),0_10px_30px_rgba(37,99,235,0.25)]`
+          : 'bg-gray-100 text-gray-800'">
+    <div class="max-w-4xl mx-auto space-y-8 text-justify">
+      <h2 class="text-5xl font-bold text-center mb-8">
+        {{ $t('about.title') }}
+      </h2>
+
+      <p class="text-lg md:text-xl leading-relaxed">
+        {{ $t('about.introStart', { idade }) }}
+        <span class="font-semibold">
+          {{ $t('about.degree') }}
+        </span>.
+        {{ $t('about.introEnd') }}
+      </p>
+
+      <p class="text-lg md:text-xl leading-relaxed">
+        {{ $t('about.paragraph2') }}
+      </p>
+
+      <p class="text-lg md:text-xl leading-relaxed mb-12">
+        {{ $t('about.paragraph3') }}
+      </p>
+
+      <div class="flex flex-col md:flex-row justify-center gap-8">
+        <div class="p-10 rounded-2xl shadow-xl border transition-all duration-300 hover:shadow-2xl text-center max-w-sm"
+          :class="lightDark
+            ? 'bg-blue-950/40 border-blue-800 text-blue-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]'
+            : 'bg-white border-gray-300 text-gray-900'">
+          <h3 class="text-5xl md:text-6xl font-bold mb-3 py-4
+                 bg-gradient-to-r from-cyan-300 to-blue-400
+                 bg-clip-text text-transparent">
+            {{ $t('about.cards.degreeTitle') }}
+          </h3>
+          <p class="text-lg md:text-xl leading-relaxed">
+            {{ $t('about.cards.degreeText') }}
+          </p>
+        </div>
+        <div class="p-10 rounded-2xl shadow-xl border transition-all duration-300 hover:shadow-2xl text-center max-w-sm"
+          :class="lightDark
+            ? 'bg-blue-950/40 border-blue-800 text-blue-100 hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]'
+            : 'bg-white border-gray-300 text-gray-900'">
+          <h3 class="text-5xl md:text-6xl font-bold mb-3
+                 bg-gradient-to-r from-cyan-300 to-blue-400
+                 bg-clip-text text-transparent">
+            {{ $t('about.cards.experienceTitle') }}
+          </h3>
+          <p class="text-lg md:text-xl leading-relaxed">
+            {{ $t('about.cards.experienceText') }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full py-24 px-6" :class="lightDark ? 'bg-black text-white' : 'bg-gray-50 text-gray-900'">
+    <div class="max-w-6xl mx-auto space-y-24">
+      <div class="space-y-14">
+        <h2 class="text-4xl font-bold text-center">
+          {{ $t('skills.title') }}
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div v-for="(lista, key) in habilidades" :key="key" :class="[
+            key === 'interpessoais' ? 'lg:col-span-4' : '',
+            lightDark
+              ? 'bg-gradient-to-br from-[#050b1a] via-[#0a1733] to-[#0f2357]'
+              : 'bg-white'
+          ]" class="rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-2xl font-semibold mb-6 text-center">
+              {{ $t(`skills.${key}`) }}
+            </h3>
+            <div v-if="key !== 'interpessoais'" class="flex flex-wrap justify-center gap-5">
+              <div v-for="item in lista as any[]" :key="item.name"
+                class="flex flex-col items-center gap-1 hover:scale-110 transition">
+                <img :src="item.icon" :alt="item.name" class="w-12 h-12" />
+                <span class="text-sm opacity-80">{{ item.name }}</span>
+              </div>
+            </div>
+
+            <div v-else class="flex flex-wrap justify-center gap-4">
+              <span v-for="(skill, index) in lista as string[]" :key="`interpessoal-${index}`"
+                class="px-4 py-2 rounded-full text-sm border" :class="lightDark
+                  ? 'border-blue-900/40 bg-blue-950/40 text-blue-200'
+                  : 'border-gray-300 bg-gray-100 text-gray-700'">
+                 {{ $t(`skills.soft.${skill}`) }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-14">
+        <h2 class="text-4xl font-bold text-center">
+          Minha trajetória
+        </h2>
+
+        <div class="relative max-w-4xl mx-auto">
+
+          <div class="absolute left-6 top-0 h-full w-1 rounded-full"
+            :class="lightDark ? 'bg-blue-800/40' : 'bg-gray-300'"></div>
+
+          <div class="space-y-12">
+            <div class="space-y-12">
+              <div v-for="item in timeline" :key="item.ano" class="group relative pl-14">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full transition-all duration-300"
+                  :class="lightDark ? 'bg-blue-500 group-hover:bg-blue-300' : 'bg-gray-600 group-hover:bg-blue-600'"></span>
+
+                <div class="p-6 rounded-xl border-l-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  :class="lightDark
+                    ? 'bg-blue-950/40 border-blue-800 group-hover:border-blue-400 hover:shadow-[0_10px_30px_rgba(37,99,235,0.35)]'
+                    : 'bg-white border-gray-400 group-hover:border-blue-600 shadow-md'">
+                  <span class="text-sm font-semibold" :class="lightDark ? 'text-blue-400' : 'text-gray-500'">
+                    {{ item.ano }}
+                  </span>
+
+                  <h3 class="text-xl font-bold mt-1">
+                    {{ item.titulo }}
+                  </h3>
+
+                  <p class="mt-3 text-base leading-relaxed" :class="lightDark ? 'text-blue-200/80' : 'text-gray-700'">
+                    {{ item.descricao }}
+                  </p>
+
+                  <div v-if="item.skills?.length" class="mt-4 flex flex-wrap gap-2">
+                    <span v-for="(skill, index) in item.skills" :key="index"
+                      class="px-3 py-1 rounded-full text-sm border" :class="lightDark
+                        ? 'border-blue-900/40 bg-blue-950/40 text-blue-200'
+                        : 'border-gray-300 bg-gray-100 text-gray-700'">
+                      {{skill}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style>
-.dark-theme {
-
-}
-
 .content {
   position: relative;
   z-index: 1;
   min-height: 100vh;
 }
-
-
 </style>
