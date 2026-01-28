@@ -1,6 +1,7 @@
 <template>
-  <section class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16"
-    :class="lightDark ? 'bg-black text-white' : 'bg-white text-gray-900'">
+  <section class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16
+    bg-white text-gray-900
+    dark:bg-black dark:text-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h1 class="pt-2 pb-3 text-4xl lg:text-5xl font-extrabold tracking-tight
@@ -16,12 +17,12 @@
       </div>
     </div>
     <div class="cards-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full">
-      <div v-for="project in filteredProjects" :key="project.id" @click="goToProject(project.route)"
-        class="cursor-pointer rounded-2xl overflow-hidden shadow-md hover:scale-105 transition-transform duration-300 border"
-        :class="lightDark
-          ? 'bg-gradient-to-br from-[#050b1a] via-[#0a1733] to-[#0f2357] text-blue-100 border-blue-900/40 hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]'
-          : 'bg-white text-gray-800 border-gray-200 hover:shadow-lg'">
-
+      <div v-for="project in filteredProjects" :key="project.id" @click="goToProject(project.route)" class="cursor-pointer rounded-2xl overflow-hidden border
+        shadow-md transition-all duration-300 hover:scale-105
+        bg-white text-gray-800 border-gray-200 hover:shadow-lg
+        dark:bg-gradient-to-br dark:from-[#050b1a] dark:via-[#0a1733] dark:to-[#0f2357]
+        dark:text-blue-100 dark:border-blue-900/40
+        dark:hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]">
         <div class="w-full h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
           <img v-if="project.image" :src="project.image" alt="" class="w-full h-full object-cover">
           <span v-else class="text-gray-400 dark:text-gray-500">Imagem do projeto</span>
@@ -35,13 +36,12 @@
   </section>
 
   <section class="relative w-full py-28 px-6 flex flex-col items-center
-         transition-all duration-300 overflow-visible z-10" :class="lightDark
-          ? `bg-gradient-to-br from-[#050b1a] via-[#0a1733] to-[#0f2357]
-       text-blue-100
-       border-t border-b border-blue-900/40
-       shadow-[0_-10px_30px_rgba(37,99,235,0.25),0_10px_30px_rgba(37,99,235,0.25)]`
-          : 'bg-gray-100 text-gray-800'">
-
+      transition-all duration-300 overflow-visible z-10
+      bg-gray-100 text-gray-800
+      dark:bg-gradient-to-br dark:from-[#050b1a] dark:via-[#0a1733] dark:to-[#0f2357]
+      dark:text-blue-100
+      dark:border-t dark:border-b dark:border-blue-900/40
+      dark:shadow-[0_-10px_30px_rgba(37,99,235,0.25),0_10px_30px_rgba(37,99,235,0.25)]">
     <h1 class="text-3xl lg:text-5xl font-bold text-center dark:text-white">
       Vídeo de Trabalhos e Projetos
     </h1>
@@ -56,8 +56,9 @@
     </div>
   </section>
 
-  <section class="w-full min-h-screen flex flex-col items-center px-6 py-24"
-    :class="lightDark ? 'bg-black text-blue-100' : 'bg-white text-gray-900'">
+  <section class="w-full min-h-screen flex flex-col items-center px-6 py-24
+    bg-white text-gray-900
+    dark:bg-black dark:text-blue-100">
     <h2 class="pt-2 pb-3 text-4xl lg:text-5xl font-extrabold tracking-tight
      bg-gradient-to-r from-cyan-300 to-blue-400
      bg-clip-text text-transparent
@@ -70,18 +71,18 @@
       Repositórios públicos com foco em frontend, backend, estudos e aplicações completas.
     </p>
 
-
     <div class="w-full max-w-lg mb-12">
-      <input type="text" v-model="searchQuery" placeholder="Buscar projetos do GitHub..."
-        class="w-full px-6 py-3 rounded-xl transition-all duration-300 outline-none border backdrop-blur-md shadow-md"
-        :class="lightDark
-          ? 'bg-gradient-to-br from-[#020b1e] via-[#061a3a] to-[#0a1e44] text-blue-100 placeholder-blue-300/50 border-blue-900/40 focus:border-cyan-400 focus:shadow-[0_0_25px_rgba(34,211,238,0.45)]'
-          : 'bg-white text-gray-700 placeholder-gray-400 border-gray-300 focus:border-blue-500 focus:shadow-md'" />
+      <input class="w-full px-6 py-3 rounded-xl outline-none border
+        transition-all duration-300 shadow-md
+        bg-white text-gray-700 placeholder-gray-400 border-gray-300
+        focus:border-blue-500 focus:shadow-md
+        dark:bg-gradient-to-br dark:from-[#020b1e] dark:via-[#061a3a] dark:to-[#0a1e44]
+        dark:text-blue-100 dark:placeholder-blue-300/50 dark:border-blue-900/40
+        dark:focus:border-cyan-400
+        dark:focus:shadow-[0_0_25px_rgba(34,211,238,0.45)]" placeholder="Pesquisar Projeto">
     </div>
 
-
     <div class="w-full max-w-6xl">
-
       <div class="flex items-center justify-between mb-10">
         <span class="font-mono text-sm opacity-60">
           github.com/OMateusSO
@@ -95,13 +96,12 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="repo in filteredRepos" :key="repo.id" class="rounded-2xl border cursor-pointer
-        transition-all duration-300 hover:scale-105" :class="lightDark
-          ? `
-            bg-gradient-to-br from-[#050b1a] via-[#0a1733] to-[#0f2357]
-            border-blue-900/40
-            hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]
-          `
-          : 'bg-white border-gray-200 hover:shadow-lg'">
+         transition-all duration-300 hover:scale-105
+         bg-white border-gray-200 hover:shadow-lg
+         dark:bg-gradient-to-br dark:from-[#050b1a] dark:via-[#0a1733] dark:to-[#0f2357]
+         dark:border-blue-900/40
+         dark:hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]">
+
           <div class="p-6 flex flex-col h-full">
             <h3 class="text-2xl font-semibold mb-2">
               {{ repo.name }}
@@ -129,7 +129,6 @@
 </template>
 
 <script setup lang="ts">
-import { lightDark } from '@/sharedTheme';
 import { useRouter } from 'vue-router';
 import { ref, computed } from 'vue';
 import bibliotecaImg from "@/assets/img/projetos/biblioteca.png"

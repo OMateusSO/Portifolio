@@ -1,22 +1,19 @@
 <script setup lang="ts">
-import { lightDark } from '@/sharedTheme';
+import '@/sharedTheme' 
 import { useHead } from '#imports'
+
 useHead({
   title: 'OMateusSO'
 })
 </script>
 
 <template>
-  <Nav/>
-  <div class="pt-16" :class="{ 'dark-theme': lightDark }">
+  <Nav />
+  <div class="pt-16">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <Zap/>
+    <Zap />
   </div>
   <Foot />
 </template>
-
-<style>
-
-</style>

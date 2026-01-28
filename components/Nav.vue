@@ -17,25 +17,27 @@
         <!-- desktop -->
         <div class="container hidden md:flex items-center justify-between py-8 md:h-16 relative">
           <router-link to="/" class="text-black dark:text-white text-2xl font-bold">
-            OMateusSO
+            <img src="/assets/img/Logo.png" alt="Logo MateusS" class="w-48 h-auto" />
           </router-link>
 
           <div class="absolute left-1/2 -translate-x-1/2 flex space-x-6">
-            <button @click="bntHome" class="text-gray-600 dark:text-gray-300 hover:text-yellow-200 dark:hover:text-blue-700 transition">
+            <button @click="bntHome"
+              class="text-gray-600 dark:text-gray-300 hover:text-yellow-200 dark:hover:text-blue-700 transition">
               {{ $t('nav.home') }}
             </button>
 
-            <button @click="bntProjetos" class="text-gray-600 dark:text-gray-300 hover:text-yellow-200 dark:hover:text-blue-700 transition">
+            <button @click="bntProjetos"
+              class="text-gray-600 dark:text-gray-300 hover:text-yellow-200 dark:hover:text-blue-700 transition">
               {{ $t('nav.projects') }}
             </button>
 
-            <button @click="bntContatos" class="text-gray-600 dark:text-gray-300 hover:text-yellow-200 dark:hover:text-blue-700 transition">
+            <button @click="bntContatos"
+              class="text-gray-600 dark:text-gray-300 hover:text-yellow-200 dark:hover:text-blue-700 transition">
               {{ $t('nav.contact') }}
             </button>
           </div>
 
 
-          <!-- DIREITA -->
           <div class="flex items-center gap-4">
             <IdiomaSwitch />
             <DarkModeSwitch />
