@@ -41,6 +41,8 @@ const habilidades = {
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
     { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
     { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+    { name: 'C#', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg'},
+    { name: 'Python', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'},
   ],
   banco: [
     { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
@@ -78,7 +80,7 @@ const timeline: TimelineItem[] = [
     ano: '2020',
     tituloKey: 'timeline.start.title',
     descricaoKey: 'timeline.start.description',
-    skills: ['Portugol'],
+    skills: ['Portugol', 'Python', 'C#'],
   },
   {
     ano: '2021–2024',
@@ -99,7 +101,6 @@ const timeline: TimelineItem[] = [
     skills: ['Next.js', 'React', 'Nuxt', 'Firebase', 'MongoDB', 'SQLite'],
   },
 ]
-
 </script>
 
 <template>

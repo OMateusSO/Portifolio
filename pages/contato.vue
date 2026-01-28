@@ -1,6 +1,9 @@
 <template>
   <div
-    class="w-full min-h-screen flex flex-col items-center justify-center px-6 bg-white text-gray-900 dark:bg-black dark:text-white">
+    class="flex flex-col items-center justify-center min-h-screen px-6
+           transition-colors duration-300
+           bg-gray-50 text-gray-900
+           dark:bg-black dark:text-white">
 
     <section class="max-w-5xl w-full space-y-8 -translate-y-12">
       <h1 class="text-4xl font-bold text-center">
