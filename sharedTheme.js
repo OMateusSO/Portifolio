@@ -1,19 +1,18 @@
-import { ref, watch } from 'vue';
+import { ref, watch } from 'vue'
 
+const isBrowser = typeof window !== 'undefined'
 
-const isBrowser = typeof window !== 'undefined';
-
-
-export const lightDark = ref(isBrowser ? localStorage.getItem('darkMode') === 'true' : false);
-
+export const lightDark = ref(
+  isBrowser ? localStorage.getItem('darkMode') === 'false' : true
+)
 
 watch(lightDark, (newValue) => {
   if (isBrowser) {
-    localStorage.setItem('darkMode', newValue.toString());
-    document.body.classList.toggle('dark-mode', newValue);
+    localStorage.setItem('darkMode', newValue.toString())
+    document.documentElement.classList.toggle('dark', newValue)
   }
-});
+})
 
 if (isBrowser && lightDark.value) {
-  document.body.classList.add('dark-mode');
+  document.documentElement.classList.add('dark')
 }

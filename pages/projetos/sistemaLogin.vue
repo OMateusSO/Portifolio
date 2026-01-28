@@ -1,6 +1,5 @@
 <template>
-  <Nav />
-  <div :class="{ 'dark-theme': lightDark }" class="relative min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
+  <div :class="{ 'dark-theme': lightDark }" class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16">
     <div class="content w-full max-w-6xl mx-auto p-4 lg:p-8">
       <!-- Título da página -->
       <div class="py-4 text-center">
@@ -61,7 +60,6 @@
       </div>
     </div>
   </div>
-  <Foot />
 </template>
 
 <script setup lang="ts">
@@ -72,7 +70,6 @@ import { lightDark } from '@/sharedTheme';
 .content {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
 }
 
 a {
