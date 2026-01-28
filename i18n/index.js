@@ -1,5 +1,4 @@
 import { createI18n } from 'vue-i18n'
-import Foot from '~/components/Foot.vue'
 
 export const i18n = createI18n({
   legacy: false,
@@ -71,8 +70,30 @@ export const i18n = createI18n({
           fastLearning: 'Facilidade de aprendizado',
           problemSolving: 'Resolução de problemas'
         }
+      },
+      timeline: {
+        title: 'Minha trajetória',
+        start: {
+          title: 'Início na programação',
+          description:
+            'Primeiro contato com lógica de programação, praticando conceitos fundamentais e fixando o raciocínio lógico utilizando Portugol.'
+        },
+        degree: {
+          title: 'Graduação em ADS',
+          description:
+            'Início da graduação em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento Java e fundamentos de banco de dados.'
+        },
+        internship: {
+          title: 'Estágio',
+          description:
+            'Atuação em projetos web durante estágio, desenvolvendo funcionalidades no frontend e backend, aplicando boas práticas, organização de código e ferramentas modernas como Vue.js, Node.js e Docker.'
+        },
+        projects: {
+          title: 'Projetos práticos',
+          description:
+            'Desenvolvimento de projetos acadêmicos e pessoais, atuando no frontend e backend, aplicando boas práticas e organização de código.'
+        }
       }
-
     },
 
     en: {
@@ -125,24 +146,45 @@ export const i18n = createI18n({
             "years of experience in programming and systems development"
         }
       },
-
-      "skills": {
-        "title": "Skills & Competencies",
-        "frontend": "Front-end",
-        "backend": "Back-end",
-        "banco": "Databases",
-        "ferramentas": "Tools",
-        "interpessoais": "Soft Skills",
-        "soft": {
-          "communication": "Communication",
-          "teamwork": "Teamwork",
-          "organization": "Organization",
-          "proactivity": "Proactivity",
-          "fastLearning": "Fast learner",
-          "problemSolving": "Problem solving"
+      skills: {
+        title: "Skills & Competencies",
+        frontend: "Front-end",
+        backend: "Back-end",
+        banco: "Databases",
+        ferramentas: "Tools",
+        interpessoais: "Soft Skills",
+        soft: {
+          communication: "Communication",
+          teamwork: "Teamwork",
+          organization: "Organization",
+          proactivity: "Proactivity",
+          fastLearning: "Fast learner",
+          problemSolving: "Problem solving"
+        }
+      },
+      timeline: {
+        title: 'My journey',
+        start: {
+          title: 'Getting started in programming',
+          description:
+            'First contact with programming logic, practicing fundamental concepts and strengthening logical reasoning using Portugol.'
+        },
+        degree: {
+          title: 'Systems Analysis degree',
+          description:
+            'Beginning of the Systems Analysis and Development degree, focusing on Java development and database fundamentals.'
+        },
+        internship: {
+          title: 'Internship',
+          description:
+            'Worked on web projects during an internship, developing frontend and backend features, applying best practices, code organization and modern tools such as Vue.js, Node.js and Docker.'
+        },
+        projects: {
+          title: 'Practical projects',
+          description:
+            'Development of academic and personal projects, working on frontend and backend, applying best practices and code organization.'
         }
       }
     }
-
   }
 })
