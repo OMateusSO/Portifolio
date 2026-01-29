@@ -105,7 +105,7 @@ const timeline: TimelineItem[] = [
 
 <template>
   <section
-    class="w-full min-h-screen flex flex-col items-center justify-center px-6 bg-white text-gray-900 dark:bg-black dark:text-white">
+    class="w-full min-h-screen flex flex-col px-6 py-16 pt-28 items-center justify-center bg-white text-gray-900 dark:bg-black dark:text-white">
     <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 items-center">
       <div class="flex justify-center">
         <img src="/assets/img/Design sem nome (1).png"
