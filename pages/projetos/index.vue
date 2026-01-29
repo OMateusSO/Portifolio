@@ -51,7 +51,7 @@
       interface e fluxo de uso.
     </p>
     <div class="w-full max-w-5xl">
-      <video src="../assets/videos/Protifole.mp4" class="w-full rounded-xl shadow-lg aspect-video" controls muted>
+      <video src="/videos/Protifole.mp4" class="w-full rounded-xl shadow-lg aspect-video" controls muted>
       </video>
     </div>
   </section>
