@@ -2,7 +2,7 @@
   <section class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16
     bg-white text-gray-900
     dark:bg-black dark:text-white">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto mt-10">
       <div class="text-center mb-16">
         <h1 class="pt-2 pb-3 text-4xl lg:text-5xl font-extrabold tracking-tight
                bg-gradient-to-r from-cyan-300 to-blue-400

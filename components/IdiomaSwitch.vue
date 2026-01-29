@@ -19,7 +19,7 @@ const flags = {
 
 <template>
   <button
-    @click="toggleLanguage"
+    @click.stop="toggleLanguage"
     class="p-2 rounded-lg transition-transform duration-200 hover:scale-110"
   >
     <img
@@ -29,3 +29,4 @@ const flags = {
     />
   </button>
 </template>
+

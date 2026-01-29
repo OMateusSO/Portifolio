@@ -1,23 +1,14 @@
 <template>
-  <div
-    class="flex flex-col items-center justify-center min-h-screen px-6
-           transition-colors duration-300
-           bg-gray-50 text-gray-900
-           dark:bg-black dark:text-white">
-
-    <section class="max-w-5xl w-full space-y-8 -translate-y-12">
+<section class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16 pt-28
+    bg-white text-gray-900
+    dark:bg-black dark:text-white">
+    <div class="text-center mb-16">
       <h1 class="text-4xl font-bold text-center">
         Minhas redes
       </h1>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <a
-          v-for="social in socials"
-          :key="social.name"
-          :href="social.url"
-          target="_blank"
-          rel="noopener"
-          class="cursor-pointer rounded-2xl overflow-hidden
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener" class="cursor-pointer rounded-2xl overflow-hidden
                  p-6 flex items-center gap-4
                  border shadow-md transition-all duration-300
                  hover:scale-105 group
@@ -29,22 +20,21 @@
                  dark:text-blue-100 dark:border-blue-900/40
                  dark:hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]">
 
-          <div class="text-3xl transition group-hover:scale-110">
-            {{ social.icon }}
-          </div>
+        <div class="text-3xl transition group-hover:scale-110">
+          {{ social.icon }}
+        </div>
 
-          <div class="text-left">
-            <p class="font-semibold text-lg">
-              {{ social.name }}
-            </p>
-            <p class="text-sm text-gray-500 dark:text-blue-300">
-              {{ social.username }}
-            </p>
-          </div>
-        </a>
-      </div>
-    </section>
-  </div>
+        <div class="text-left">
+          <p class="font-semibold text-lg">
+            {{ social.name }}
+          </p>
+          <p class="text-sm text-gray-500 dark:text-blue-300">
+            {{ social.username }}
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
