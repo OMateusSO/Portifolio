@@ -1,65 +1,110 @@
 <template>
-  <div :class="{ 'dark-theme': lightDark }" class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16">
+  <section
+    class="w-full min-h-screen flex flex-col items-center justify-start px-6 py-16
+           bg-white text-gray-900
+           dark:bg-black dark:text-blue-100 transition-colors duration-300"
+  >
     <div class="content w-full max-w-6xl mx-auto p-4 lg:p-8">
+
+      <!-- Título -->
       <div class="py-4 text-center">
-        <h1 class="text-3xl lg:text-5xl font-bold dark:text-white">WebChat</h1>
+        <h1 class="text-3xl lg:text-5xl font-bold dark:text-white">
+          {{ $t('webchat.title') }}
+        </h1>
       </div>
 
+      <!-- Sobre -->
       <div class="mb-8">
-        <h2 class="text-2xl font-semibold dark:text-white mb-4">Sobre o Projeto</h2>
-        <p class="text-gray-700 dark:text-gray-300">
-          WebChat é uma aplicação web desenvolvida com Vue.js, utilizando Firebase para backend e banco de dados, e
-          estilizada com Tailwind CSS para uma interface moderna e responsiva. Este projeto permite a criação e gestão
-          de salas de bate-papo em tempo real.
+        <h2 class="text-2xl font-semibold dark:text-white mb-4">
+          {{ $t('webchat.about.title') }}
+        </h2>
+        <p class="text-gray-700 dark:text-blue-100">
+          {{ $t('webchat.about.description') }}
         </p>
       </div>
 
+      <!-- Tecnologias -->
       <div class="mb-8">
-        <h2 class="text-2xl font-semibold dark:text-white mb-4">Tecnologias Utilizadas</h2>
-        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-          <li><strong>Vue.js:</strong> Framework JavaScript progressivo para construção de interfaces interativas.</li>
-          <li><strong>Firebase:</strong> Plataforma para autenticação, banco de dados em tempo real e hospedagem.</li>
-          <li><strong>Tailwind CSS:</strong> Framework CSS utilitário para estilização rápida e responsiva.</li>
+        <h2 class="text-2xl font-semibold dark:text-white mb-4">
+          {{ $t('webchat.technologies.title') }}
+        </h2>
+        <ul class="list-disc list-inside text-gray-700 dark:text-blue-100">
+          <li>
+            <strong>{{ $t('webchat.technologies.items.vue.name') }}:</strong>
+            {{ $t('webchat.technologies.items.vue.description') }}
+          </li>
+          <li>
+            <strong>{{ $t('webchat.technologies.items.firebase.name') }}:</strong>
+            {{ $t('webchat.technologies.items.firebase.description') }}
+          </li>
+          <li>
+            <strong>{{ $t('webchat.technologies.items.tailwind.name') }}:</strong>
+            {{ $t('webchat.technologies.items.tailwind.description') }}
+          </li>
         </ul>
       </div>
 
+      <!-- Funcionalidades -->
       <div class="mb-8">
-        <h2 class="text-2xl font-semibold dark:text-white mb-4">Funcionalidades</h2>
-        <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
-          <li><strong>Autenticação:</strong> Gerenciada com o Firebase Auth para login seguro.</li>
-          <li><strong>Criação de Salas:</strong> Usuários podem criar salas de bate-papo.</li>
-          <li><strong>Mensagens em Tempo Real:</strong> Bate-papo em tempo real com sincronização instantânea via
-            Firebase Firestore.</li>
-          <li><strong>Interface Responsiva:</strong> Design otimizado para diferentes tamanhos de tela.</li>
+        <h2 class="text-2xl font-semibold dark:text-white mb-4">
+          {{ $t('webchat.features.title') }}
+        </h2>
+        <ul class="list-disc list-inside text-gray-700 dark:text-blue-100">
+          <li>
+            <strong>{{ $t('webchat.features.items.auth.title') }}:</strong>
+            {{ $t('webchat.features.items.auth.description') }}
+          </li>
+          <li>
+            <strong>{{ $t('webchat.features.items.rooms.title') }}:</strong>
+            {{ $t('webchat.features.items.rooms.description') }}
+          </li>
+          <li>
+            <strong>{{ $t('webchat.features.items.realtime.title') }}:</strong>
+            {{ $t('webchat.features.items.realtime.description') }}
+          </li>
+          <li>
+            <strong>{{ $t('webchat.features.items.responsive.title') }}:</strong>
+            {{ $t('webchat.features.items.responsive.description') }}
+          </li>
         </ul>
       </div>
 
+      <!-- GitHub -->
       <div class="mb-8">
-        <h2 class="text-2xl font-semibold dark:text-white mb-4">Repositório no GitHub</h2>
-        <div>
-          <a href="https://github.com/OMateusSO/RedeSocial-Firebase" target="_blank"
-            class="text-blue-600 hover:text-blue-800 transition-colors">
-            https://github.com/OMateusSO/WebChat
-          </a>
-        </div>
+        <h2 class="text-2xl font-semibold dark:text-white mb-4">
+          {{ $t('webchat.repository.title') }}
+        </h2>
+        <a
+          href="https://github.com/OMateusSO/WebChat"
+          target="_blank"
+          class="text-blue-600 hover:text-blue-800
+                 dark:text-blue-300 dark:hover:text-blue-200 transition-colors"
+        >
+          {{ $t('webchat.repository.link') }}
+        </a>
       </div>
 
+      <!-- Demo -->
       <div class="mb-8">
-        <h2 class="text-2xl font-semibold dark:text-white mb-4">Demonstração</h2>
+        <h2 class="text-2xl font-semibold dark:text-white mb-4">
+          {{ $t('webchat.demo.title') }}
+        </h2>
         <div class="flex justify-center">
           <div class="max-w-screen-md w-full">
-            <video src="/videos/ProjetoZ.mp4" class="w-full rounded-lg shadow-md" controls muted></video>
+            <video
+              src="/videos/ProjetoZ.mp4"
+              class="w-full rounded-xl shadow-lg"
+              controls
+              muted
+            />
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
+    </div>
+  </section>
 </template>
 
-<script setup lang="ts">
-import { lightDark } from '@/sharedTheme';
-</script>
 
 <style scoped>
 .content {

@@ -3,9 +3,11 @@
     bg-white text-gray-900
     dark:bg-black dark:text-white">
     <div class="text-center mb-16">
+    <div class="text-center mb-16">
       <h1 class="text-4xl font-bold text-center">
-        Minhas redes
+        {{ $t('socials.title') }}
       </h1>
+    </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" rel="noopener" class="cursor-pointer rounded-2xl overflow-hidden

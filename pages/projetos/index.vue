@@ -9,10 +9,10 @@
                bg-clip-text text-transparent
                drop-shadow-[0_0_14px_rgba(34,211,238,0.6)]
                animate-glow">
-          Projetos em destaque
+          {{ $t('projects.featuredTitle') }}
         </h1>
         <p class="mt-4 text-lg opacity-70 max-w-2xl mx-auto">
-          Alguns dos projetos que desenvolvi focados em frontend, backend e aplicações completas.
+          {{ $t('projects.featuredDescription') }}
         </p>
       </div>
     </div>
@@ -25,11 +25,17 @@
         dark:hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]">
         <div class="w-full h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
           <img v-if="project.image" :src="project.image" alt="" class="w-full h-full object-cover">
-          <span v-else class="text-gray-400 dark:text-gray-500">Imagem do projeto</span>
+          <span v-else class="text-gray-400 dark:text-gray-500">
+            {{ $t('projects.noImage') }}
+          </span>
         </div>
         <div class="p-6 flex flex-col">
-          <h2 class="text-2xl font-semibold mb-2">{{ project.title }}</h2>
-          <p class="text-gray-600 dark:text-gray-400">{{ project.description }}</p>
+          <h2 class="text-2xl font-semibold mb-2">
+            {{ $t(`projects.items.${project.key}.title`) }}
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400">
+            {{ $t(`projects.items.${project.key}.description`) }}
+          </p>
         </div>
       </div>
     </div>
@@ -43,13 +49,13 @@
       dark:border-t dark:border-b dark:border-blue-900/40
       dark:shadow-[0_-10px_30px_rgba(37,99,235,0.25),0_10px_30px_rgba(37,99,235,0.25)]">
     <h1 class="text-3xl lg:text-5xl font-bold text-center dark:text-white">
-      Vídeo de Trabalhos e Projetos
+      {{ $t('projects.videoTitle') }}
     </h1>
 
     <p class="mt-4 mb-12 text-center text-lg opacity-70 max-w-2xl mx-auto">
-      Uma demonstração prática dos projetos em funcionamento, destacando recursos,
-      interface e fluxo de uso.
+      {{ $t('projects.videoDescription') }}
     </p>
+
     <div class="w-full max-w-5xl">
       <video src="/videos/Protifole.mp4" class="w-full rounded-xl shadow-lg aspect-video" controls muted>
       </video>
@@ -64,33 +70,34 @@
      bg-clip-text text-transparent
      drop-shadow-[0_0_14px_rgba(34,211,238,0.6)]
      animate-glow">
-      Meu GitHub
+      {{ $t('projects.githubTitle') }}
     </h2>
 
     <p class="mt-4 mb-14 text-center text-lg opacity-70 max-w-2xl mx-auto">
-      Repositórios públicos com foco em frontend, backend, estudos e aplicações completas.
+      {{ $t('projects.githubDescription') }}
     </p>
 
     <div class="w-full max-w-lg mb-12">
-      <input class="w-full px-6 py-3 rounded-xl outline-none border
-        transition-all duration-300 shadow-md
-        bg-white text-gray-700 placeholder-gray-400 border-gray-300
-        focus:border-blue-500 focus:shadow-md
-        dark:bg-gradient-to-br dark:from-[#020b1e] dark:via-[#061a3a] dark:to-[#0a1e44]
-        dark:text-blue-100 dark:placeholder-blue-300/50 dark:border-blue-900/40
-        dark:focus:border-cyan-400
-        dark:focus:shadow-[0_0_25px_rgba(34,211,238,0.45)]" placeholder="Pesquisar Projeto">
+      <input v-model="searchQuery" class="w-full px-6 py-3 rounded-xl outline-none border
+    transition-all duration-300 shadow-md
+    bg-white text-gray-700 placeholder-gray-400 border-gray-300
+    focus:border-blue-500 focus:shadow-md
+    dark:bg-gradient-to-br dark:from-[#020b1e] dark:via-[#061a3a] dark:to-[#0a1e44]
+    dark:text-blue-100 dark:placeholder-blue-300/50 dark:border-blue-900/40
+    dark:focus:border-cyan-400
+    dark:focus:shadow-[0_0_25px_rgba(34,211,238,0.45)]" :placeholder="$t('projects.searchPlaceholder')" />
+
     </div>
 
     <div class="w-full max-w-6xl">
       <div class="flex items-center justify-between mb-10">
         <span class="font-mono text-sm opacity-60">
-          github.com/OMateusSO
+          {{ $t('projects.viewOnGithub') }}
         </span>
 
         <a href="https://github.com/OMateusSO?tab=repositories" target="_blank"
           class="text-blue-400 hover:text-blue-300 transition hover:underline">
-          Ver no GitHub ↗
+          {{ $t('projects.viewOnGithub') }} ↗
         </a>
       </div>
 
@@ -108,7 +115,7 @@
             </h3>
 
             <p class="text-sm opacity-80 flex-grow">
-              {{ repo.description || 'Sem descrição' }}
+              {{ repo.description || $t('projects.noDescription') }}
             </p>
 
             <div class="flex flex-wrap gap-4 mt-4 text-sm opacity-70">
@@ -132,8 +139,6 @@
 import { useRouter } from 'vue-router';
 import { ref, computed } from 'vue';
 
-
-
 const repos = ref<any[]>([])
 
 onMounted(async () => {
@@ -146,6 +151,14 @@ onMounted(async () => {
     console.error('Erro ao carregar repositórios', err)
   }
 })
+
+function normalize(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 
 const filteredRepos = computed(() => {
   if (!searchQuery.value) return repos.value
@@ -160,25 +173,23 @@ const filteredRepos = computed(() => {
 const router = useRouter();
 const searchQuery = ref("");
 
+
 const projects = [
   {
     id: 1,
-    title: "Sistema de Login",
-    description: "Projeto de sistema de login seguro e responsivo.",
+    key: "login",
     route: "/projetos/sistemaLogin",
     image: "/projetos/sistemaLogin.png"
   },
   {
     id: 2,
-    title: "WebChat",
-    description: "Aplicação de chat em tempo real com várias funcionalidades.",
+    key: "webchat",
     route: "/projetos/webchat",
     image: "/projetos/webchat.png"
   },
   {
     id: 3,
-    title: "Biblioteca",
-    description: "Projeto completo de e-commerce com carrinho de compras.",
+    key: "biblioteca",
     route: "/projetos/biblioteca",
     image: "/projetos/biblioteca.png"
   }
@@ -186,7 +197,7 @@ const projects = [
 
 const filteredProjects = computed(() => {
   return projects.filter(project =>
-    project.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+    project.key.toLowerCase().includes(searchQuery.value.toLowerCase())
   );
 });
 
