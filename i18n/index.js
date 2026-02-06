@@ -23,9 +23,9 @@ export const i18n = createI18n({
         }
       },
       hero: {
-        role: 'Desenvolvedor Fullstack',
+        role: 'Analista de Dados Jr. & Fullstack',
         description:
-          'Desenvolvedor focado em criar aplicações modernas, performáticas e bem estruturadas, com atenção à experiência do usuário.',
+          'Profissional formado em ADS, com sólida base em lógica, bancos de dados e SQL, em transição para Dados/BI. Especialista em transformar dados em informações estratégicas por meio de análises e dashboards.',
         buttons: {
           resume: 'Ver Currículo',
           projects: 'Ver Projetos'
@@ -335,9 +335,9 @@ export const i18n = createI18n({
         }
       },
       hero: {
-        role: 'Fullstack Developer',
+        role: 'Data Analyst Jr. & Fullstack Developer',
         description:
-          'Developer focused on building modern, high-performance and well-structured applications, with attention to user experience.',
+          'ADS graduate with a strong foundation in logic, databases, and SQL, transitioning to Data/BI. Skilled in turning data into actionable insights through analyses and dashboards.',
         buttons: {
           resume: 'View Resume',
           projects: 'View Projects'
